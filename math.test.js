@@ -6,5 +6,5 @@ test("Testing Math Function: Sum",() => {
 })
 
 test("Failing Math Function: Sum", () => {
-    expect(sum(null,undefined)).toBe(3);
+    expect(sum(null,undefined)).toBe(NaN);
 })
