@@ -1,0 +1,17 @@
+{
+  "name": "jest_with_ci",
+  "version": "1.0.0",
+  "description": "Simple Jest Code with Continuous Integration using Github Actions",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.0.2"
+  },
+  "dependencies": {
+    "@types/jest": "^30.0.0"
+  }
+}
