@@ -1,0 +1,28 @@
+name: Node.js CI Build & Test
+
+# Define when this workflow should run
+on:
+  push:
+    branches: [ "main", "develop" ] # Trigger on pushes to these branches
+  pull_request:
+    branches: [ "main", "develop" ] # Trigger on pull requests targeting these branches
+
+# Define the jobs to be executed
+jobs:
+  build-and-test: # Name of the job
+    runs-on: ubuntu-latest # Specify the runner environment (GitHub-hosted Linux VM)
+
+    steps:
+    - name: Checkout Repository # Step 1: Get your code from the repo
+      uses: actions/checkout@v4 # Use the official 'checkout' action
+
+    - name: Set up Node.js # Step 2: Configure the Node.js environment
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20' # Specify the Node.js version you are using (e.g., '18', '20', '22')
+
+    - name: Install Dependencies # Step 3: Install project dependencies using npm ci
+      run: npm ci # 'npm ci' is preferred over 'npm install' in CI environments for speed and reliability
+
+    - name: Run Jest Tests # Step 4: Execute your Jest tests
+      run: npm test # This runs the 'test' script defined in your package.json (which should be 'jest')
